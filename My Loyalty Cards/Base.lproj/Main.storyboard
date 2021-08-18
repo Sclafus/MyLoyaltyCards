@@ -42,7 +42,7 @@
                     <navigationItem key="navigationItem" title="Your cards" id="DZx-HS-39P">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="APB-mb-q5l">
                             <connections>
-                                <segue destination="OXm-oe-IX6" kind="presentation" id="M90-It-hZl"/>
+                                <segue destination="OXm-oe-IX6" kind="presentation" identifier="newCard" id="M90-It-hZl"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -78,14 +78,21 @@
                             <constraint firstItem="Km4-07-BFt" firstAttribute="top" secondItem="Hvv-HW-dqs" secondAttribute="top" constant="80" id="sjz-oC-rhV"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="oXS-hf-jTg"/>
+                    <navigationItem key="navigationItem" id="oXS-hf-jTg">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="psT-U1-yNH">
+                            <color key="tintColor" systemColor="systemRedColor"/>
+                            <connections>
+                                <action selector="deleteButtonAction:" destination="3le-Gh-WT8" id="mgU-1O-h2w"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="cardImage" destination="Km4-07-BFt" id="h0T-gr-nZS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9y8-qP-Hky" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2671" y="397"/>
+            <point key="canvasLocation" x="1790" y="734"/>
         </scene>
         <!--New card-->
         <scene sceneID="ZtL-vK-d8b">
@@ -127,6 +134,11 @@
                                 </constraints>
                                 <items>
                                     <navigationItem title="New Card" id="6bE-o9-iGk">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="3Ov-d7-7xD">
+                                            <connections>
+                                                <action selector="cancelButtonAction:" destination="OXm-oe-IX6" id="8Yh-VM-PBP"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="jwu-QA-fCl">
                                             <connections>
                                                 <action selector="doneButtonAction:" destination="OXm-oe-IX6" id="RSP-fE-Bdg"/>
@@ -206,7 +218,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m6u-6s-qBy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2671.0144927536235" y="-309.375"/>
+            <point key="canvasLocation" x="2790" y="56"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NEy-pl-0sW">
@@ -238,6 +250,9 @@
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
