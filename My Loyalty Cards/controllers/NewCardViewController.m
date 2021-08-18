@@ -33,6 +33,16 @@
 - (IBAction)doneButtonAction:(id)sender {
     NSString *companyName = self.companyNameTextField.text;
     NSString *clientId =  self.clientIdTextField.text;
+    
+    // checks if all the text fields have been filled
+    if ([companyName  isEqual: @""] || [clientId  isEqual: @""]){
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Fill all the fields"
+                                                                       message:@"Please fill all the fields" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {}];
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
+        return;
+    }
     bool barcode = self.cardTypeSegmentOutput.selectedSegmentIndex == 1 ? true : false;
     NSString *colorHex = [ColorHelper stringFromColor:self.cardColorSegmentedOutput.selectedSegmentTintColor];
     NSLog(@"%@ %@ %d %@", clientId, companyName, barcode, colorHex);
