@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property bool isBarcode;
 @property NSString *colorHex;
 
-+ (id)initWithCompanyName:(NSString*)companyName
+- (id)initWithCompanyName:(NSString*)companyName
                  stringId:(NSString*)stringID
                  colorHex:(NSString*)colorHex
                 isBarcode:(BOOL)isBarcode;
