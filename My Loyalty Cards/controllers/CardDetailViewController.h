@@ -13,6 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) Card *specifiedCard;
 @property (strong, nonatomic) IBOutlet UIImageView *cardImage;
+
+- (IBAction)deleteButtonAction:(id)sender;
+
 @end
 
 NS_ASSUME_NONNULL_END
