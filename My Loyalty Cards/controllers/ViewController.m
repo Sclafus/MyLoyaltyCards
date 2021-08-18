@@ -8,10 +8,9 @@
 #import "ViewController.h"
 #import "CardList.h"
 #import "CardDetailViewController.h"
+#import "NewCardViewController.h"
 
 @interface ViewController ()
-
-@property (nonatomic, strong) CardList *cards;
 
 @end
 
@@ -19,13 +18,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"My cards";
+    
     self.cardTableView.dataSource = self;
     self.cardTableView.delegate = self;
-    self.title = @"My cards";
     self.cards = [[CardList alloc] init];
     
     // example data
-    [self.cards add:[[Card alloc]initWithCompanyName:@"Crai" stringId:@"pisellofono" colorHex:@"#00FF00" isBarcode:true]];
+    [self.cards add:[[Card alloc]initWithCompanyName:@"Crai" stringId:@"ciao" colorHex:@"#007aff" isBarcode:true]];
+    [self.cards add:[[Card alloc]initWithCompanyName:@"Esselunga" stringId:@"ciao2" colorHex:@"#32c759" isBarcode:false]];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -42,12 +43,21 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    // card detail segue
     if([segue.identifier isEqualToString:@"showCardDetail"]){
         if ([segue.destinationViewController isKindOfClass:[CardDetailViewController class]]){
             CardDetailViewController *vc = (CardDetailViewController *)segue.destinationViewController;
             NSIndexPath *indexPath = [self.cardTableView indexPathForCell:sender];
             Card *c = [self.cards getAtIndex:indexPath.row];
             vc.specifiedCard = c;
+        }
+    }
+    // new card segue
+    if([segue.identifier isEqualToString:@"showNewCard"]){
+        if([segue.destinationViewController isKindOfClass:[NewCardViewController class]]){
+            NewCardViewController *vc = (NewCardViewController *)segue.destinationViewController;
+            vc.cards = self.cards;
         }
     }
 }

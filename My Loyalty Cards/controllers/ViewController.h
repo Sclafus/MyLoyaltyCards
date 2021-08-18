@@ -6,10 +6,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CardList.h"
 
 @interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *cardTableView;
-
+@property (strong, nonatomic) CardList *cards;
 
 @end
 
