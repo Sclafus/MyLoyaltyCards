@@ -9,7 +9,5 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-- (void)saveContext;
-
 @end
 
