@@ -15,6 +15,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"Negro";
     // Do any additional setup after loading the view.
 }
 
