@@ -6,10 +6,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "CardList.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NewCardViewController : UIViewController
+
+@property (strong, nonatomic) CardList *cards;
 
 @property (strong, nonatomic) IBOutlet UITextField *companyNameTextField;
 
@@ -20,6 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UISegmentedControl *cardColorSegmentedOutput;
 
 - (IBAction)cardColorAction:(id)sender;
+
+- (IBAction)cancelButtonAction:(id)sender;
 
 - (IBAction)doneButtonAction:(id)sender;
 

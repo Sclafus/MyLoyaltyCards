@@ -8,7 +8,7 @@
 #import "NewCardViewController.h"
 #import "Card.h"
 #import "ColorHelper.h"
-
+#import "ViewController.h"
 @interface NewCardViewController ()
 
 @end
@@ -20,15 +20,6 @@
     // Do any additional setup after loading the view.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)doneButtonAction:(id)sender {
     NSString *companyName = self.companyNameTextField.text;
@@ -36,6 +27,8 @@
     
     // checks if all the text fields have been filled
     if ([companyName  isEqual: @""] || [clientId  isEqual: @""]){
+        
+        // alert
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Fill all the fields"
                                                                        message:@"Please fill all the fields" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {}];
@@ -51,9 +44,15 @@
                                      stringId:clientId
                                      colorHex:colorHex
                                     isBarcode:barcode];
-    // TODO add the card to the list
+    [self.cards add:newCard];
+    [self dismissViewControllerAnimated:YES completion:nil];
     return;
 }
+
+- (IBAction)cancelButtonAction:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 - (IBAction)cardColorAction:(id)sender {
     
