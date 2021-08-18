@@ -15,11 +15,31 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cEW-Bm-aGY">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cardCell" id="BO7-fN-9w7">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BO7-fN-9w7" id="YOg-XD-uVh">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="3le-Gh-WT8" kind="show" identifier="showCardDetail" id="BRD-q9-2X6"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Your Loyalty Cards" id="DZx-HS-39P">
+                    <navigationItem key="navigationItem" title="Your cards" id="DZx-HS-39P">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="APB-mb-q5l">
                             <connections>
                                 <segue destination="OXm-oe-IX6" kind="presentation" id="M90-It-hZl"/>
@@ -27,10 +47,45 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="cardTableView" destination="cEW-Bm-aGY" id="yLz-St-4qq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1789.8550724637682" y="55.580357142857139"/>
+        </scene>
+        <!--Card Detail View Controller-->
+        <scene sceneID="QJ4-jD-ASJ">
+            <objects>
+                <viewController id="3le-Gh-WT8" customClass="CardDetailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wHq-0Q-ZYD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Km4-07-BFt">
+                                <rect key="frame" x="20" y="168" width="374" height="374"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="374" id="ZOU-hO-H6T"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Hvv-HW-dqs"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Km4-07-BFt" firstAttribute="leading" secondItem="Hvv-HW-dqs" secondAttribute="leading" constant="20" id="ISg-UY-8QG"/>
+                            <constraint firstItem="Hvv-HW-dqs" firstAttribute="trailing" secondItem="Km4-07-BFt" secondAttribute="trailing" constant="20" id="Ore-mJ-brV"/>
+                            <constraint firstItem="Km4-07-BFt" firstAttribute="top" secondItem="Hvv-HW-dqs" secondAttribute="top" constant="80" id="sjz-oC-rhV"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="oXS-hf-jTg"/>
+                    <connections>
+                        <outlet property="cardImage" destination="Km4-07-BFt" id="h0T-gr-nZS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9y8-qP-Hky" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2671" y="397"/>
         </scene>
         <!--New card-->
         <scene sceneID="ZtL-vK-d8b">
@@ -72,7 +127,11 @@
                                 </constraints>
                                 <items>
                                     <navigationItem title="New Card" id="6bE-o9-iGk">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="jwu-QA-fCl"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="jwu-QA-fCl">
+                                            <connections>
+                                                <action selector="doneButtonAction:" destination="OXm-oe-IX6" id="RSP-fE-Bdg"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -102,6 +161,10 @@
                                     <segment title="Yellow"/>
                                     <segment title="Purple"/>
                                 </segments>
+                                <color key="selectedSegmentTintColor" systemColor="systemBlueColor"/>
+                                <connections>
+                                    <action selector="cardColorAction:" destination="OXm-oe-IX6" eventType="valueChanged" id="iti-ek-4t1"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3xc-cN-c9C"/>
@@ -134,6 +197,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Nad-AS-lgd"/>
+                    <connections>
+                        <outlet property="cardColorSegmentedOutput" destination="DCH-MO-AZj" id="xV0-Wf-sMM"/>
+                        <outlet property="cardTypeSegmentOutput" destination="JSb-uP-tMO" id="L6M-lv-iya"/>
+                        <outlet property="clientIdTextField" destination="JNX-2H-gd0" id="wQc-il-5hX"/>
+                        <outlet property="companyNameTextField" destination="di1-SK-rH5" id="3Li-8o-qBF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m6u-6s-qBy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -166,6 +235,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
