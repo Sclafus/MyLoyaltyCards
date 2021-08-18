@@ -15,6 +15,12 @@
 		7E26F2C126CC1137004ED106 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E26F2BF26CC1137004ED106 /* LaunchScreen.storyboard */; };
 		7E26F2C426CC1137004ED106 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E26F2C326CC1137004ED106 /* main.m */; };
 		7E970BE326CD070200CF69E1 /* NewCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E970BE226CD070200CF69E1 /* NewCardViewController.m */; };
+		7E970BEE26CD151700CF69E1 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E970BED26CD151700CF69E1 /* Card.m */; };
+		7E970BF426CD372800CF69E1 /* ColorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E970BF326CD372800CF69E1 /* ColorHelper.m */; };
+		7ECC14DB26CD555B00808AC0 /* CardList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC14DA26CD555B00808AC0 /* CardList.m */; };
+		7ECC14DF26CD5A0700808AC0 /* CardDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC14DE26CD5A0700808AC0 /* CardDetailViewController.m */; };
+		7ECC14E726CD600000808AC0 /* QRCodeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC14E626CD600000808AC0 /* QRCodeHelper.m */; };
+		7ECC14EB26CD6B2F00808AC0 /* BarcodeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECC14EA26CD6B2F00808AC0 /* BarcodeHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +38,18 @@
 		7E26F2C326CC1137004ED106 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7E970BE126CD070200CF69E1 /* NewCardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewCardViewController.h; sourceTree = "<group>"; };
 		7E970BE226CD070200CF69E1 /* NewCardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewCardViewController.m; sourceTree = "<group>"; };
+		7E970BEC26CD151700CF69E1 /* Card.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
+		7E970BED26CD151700CF69E1 /* Card.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
+		7E970BF226CD372800CF69E1 /* ColorHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorHelper.h; sourceTree = "<group>"; };
+		7E970BF326CD372800CF69E1 /* ColorHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorHelper.m; sourceTree = "<group>"; };
+		7ECC14D926CD555B00808AC0 /* CardList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardList.h; sourceTree = "<group>"; };
+		7ECC14DA26CD555B00808AC0 /* CardList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardList.m; sourceTree = "<group>"; };
+		7ECC14DD26CD5A0700808AC0 /* CardDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardDetailViewController.h; sourceTree = "<group>"; };
+		7ECC14DE26CD5A0700808AC0 /* CardDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardDetailViewController.m; sourceTree = "<group>"; };
+		7ECC14E526CD600000808AC0 /* QRCodeHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QRCodeHelper.h; sourceTree = "<group>"; };
+		7ECC14E626CD600000808AC0 /* QRCodeHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QRCodeHelper.m; sourceTree = "<group>"; };
+		7ECC14E926CD6B2F00808AC0 /* BarcodeHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BarcodeHelper.h; sourceTree = "<group>"; };
+		7ECC14EA26CD6B2F00808AC0 /* BarcodeHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BarcodeHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,21 +82,57 @@
 		7E26F2B026CC1136004ED106 /* My Loyalty Cards */ = {
 			isa = PBXGroup;
 			children = (
+				7ECC14E226CD5A3600808AC0 /* controllers */,
+				7E970BF026CD1E6800CF69E1 /* helpers */,
+				7E970BEB26CD150500CF69E1 /* model */,
 				7E26F2B126CC1136004ED106 /* AppDelegate.h */,
 				7E26F2B226CC1136004ED106 /* AppDelegate.m */,
 				7E26F2B426CC1136004ED106 /* SceneDelegate.h */,
 				7E26F2B526CC1136004ED106 /* SceneDelegate.m */,
-				7E26F2B726CC1136004ED106 /* ViewController.h */,
-				7E26F2B826CC1136004ED106 /* ViewController.m */,
 				7E26F2BA26CC1136004ED106 /* Main.storyboard */,
 				7E26F2BD26CC1137004ED106 /* Assets.xcassets */,
 				7E26F2BF26CC1137004ED106 /* LaunchScreen.storyboard */,
 				7E26F2C226CC1137004ED106 /* Info.plist */,
 				7E26F2C326CC1137004ED106 /* main.m */,
+			);
+			path = "My Loyalty Cards";
+			sourceTree = "<group>";
+		};
+		7E970BEB26CD150500CF69E1 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				7E970BEC26CD151700CF69E1 /* Card.h */,
+				7E970BED26CD151700CF69E1 /* Card.m */,
+				7ECC14D926CD555B00808AC0 /* CardList.h */,
+				7ECC14DA26CD555B00808AC0 /* CardList.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		7E970BF026CD1E6800CF69E1 /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7E970BF226CD372800CF69E1 /* ColorHelper.h */,
+				7E970BF326CD372800CF69E1 /* ColorHelper.m */,
+				7ECC14E526CD600000808AC0 /* QRCodeHelper.h */,
+				7ECC14E626CD600000808AC0 /* QRCodeHelper.m */,
+				7ECC14E926CD6B2F00808AC0 /* BarcodeHelper.h */,
+				7ECC14EA26CD6B2F00808AC0 /* BarcodeHelper.m */,
+			);
+			path = helpers;
+			sourceTree = "<group>";
+		};
+		7ECC14E226CD5A3600808AC0 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7E26F2B726CC1136004ED106 /* ViewController.h */,
+				7E26F2B826CC1136004ED106 /* ViewController.m */,
+				7ECC14DD26CD5A0700808AC0 /* CardDetailViewController.h */,
+				7ECC14DE26CD5A0700808AC0 /* CardDetailViewController.m */,
 				7E970BE126CD070200CF69E1 /* NewCardViewController.h */,
 				7E970BE226CD070200CF69E1 /* NewCardViewController.m */,
 			);
-			path = "My Loyalty Cards";
+			path = controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -111,6 +165,7 @@
 				TargetAttributes = {
 					7E26F2AD26CC1136004ED106 = {
 						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
 					};
 				};
 			};
@@ -151,10 +206,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E970BE326CD070200CF69E1 /* NewCardViewController.m in Sources */,
+				7ECC14E726CD600000808AC0 /* QRCodeHelper.m in Sources */,
 				7E26F2B926CC1136004ED106 /* ViewController.m in Sources */,
+				7ECC14EB26CD6B2F00808AC0 /* BarcodeHelper.m in Sources */,
 				7E26F2B326CC1136004ED106 /* AppDelegate.m in Sources */,
+				7ECC14DF26CD5A0700808AC0 /* CardDetailViewController.m in Sources */,
+				7ECC14DB26CD555B00808AC0 /* CardList.m in Sources */,
+				7E970BF426CD372800CF69E1 /* ColorHelper.m in Sources */,
 				7E26F2C426CC1137004ED106 /* main.m in Sources */,
 				7E26F2B626CC1136004ED106 /* SceneDelegate.m in Sources */,
+				7E970BEE26CD151700CF69E1 /* Card.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,7 +358,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_NO_COMMON_BLOCKS = NO;
 				INFOPLIST_FILE = "My Loyalty Cards/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -305,6 +368,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "alessandro-sclafani.My-Loyalty-Cards";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "My Loyalty Cards-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -314,7 +380,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_NO_COMMON_BLOCKS = NO;
 				INFOPLIST_FILE = "My Loyalty Cards/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -322,6 +390,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "alessandro-sclafani.My-Loyalty-Cards";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "My Loyalty Cards-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
