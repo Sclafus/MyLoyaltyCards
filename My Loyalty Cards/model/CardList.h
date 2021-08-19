@@ -12,9 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CardList : NSObject
 
 - (long) size;
-- (NSArray *)getAll;
-- (void)add:(Card *)card;
-- (Card *)getAtIndex:(NSInteger)index;
+- (NSArray *) getAll;
+- (void) add:(Card *)card;
+- (void) remove:(Card *)card;
+- (Card *) getAtIndex:(NSInteger)index;
 @end
 
 NS_ASSUME_NONNULL_END

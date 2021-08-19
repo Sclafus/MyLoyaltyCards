@@ -33,6 +33,11 @@
     [self.cards addObject:card];
 }
 
+- (void) remove:(Card *)card{
+    NSInteger index = [self.cards indexOfObject:card];
+    [self.cards removeObjectAtIndex:index];
+}
+
 - (Card *)getAtIndex:(NSInteger)index{
     return [self.cards objectAtIndex:index];
 }
