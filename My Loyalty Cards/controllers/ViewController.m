@@ -24,9 +24,16 @@
     self.cardTableView.delegate = self;
     self.cards = [[CardList alloc] init];
     
+    // observer to update the tableview
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(handleData) name:@"reload_data" object:nil];
+    
     // example data
     [self.cards add:[[Card alloc]initWithCompanyName:@"Crai" stringId:@"ciao" colorHex:@"#007aff" isBarcode:true]];
     [self.cards add:[[Card alloc]initWithCompanyName:@"Esselunga" stringId:@"ciao2" colorHex:@"#32c759" isBarcode:false]];
+}
+
+- (void) handleData {
+    [self.cardTableView reloadData];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -36,9 +43,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cardCell" forIndexPath:indexPath];
-    Card *card = [self.cards getAtIndex:indexPath.row];
     
-    cell.textLabel.text = card.companyName;	
+    cell.textLabel.text = [self.cards getAtIndex:indexPath.row].companyName;
     return cell;
 }
 
@@ -54,7 +60,7 @@
         }
     }
     // new card segue
-    if([segue.identifier isEqualToString:@"showNewCard"]){
+    if([segue.identifier isEqualToString:@"newCard"]){
         if([segue.destinationViewController isKindOfClass:[NewCardViewController class]]){
             NewCardViewController *vc = (NewCardViewController *)segue.destinationViewController;
             vc.cards = self.cards;

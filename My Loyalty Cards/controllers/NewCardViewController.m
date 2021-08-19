@@ -38,13 +38,19 @@
     }
     bool barcode = self.cardTypeSegmentOutput.selectedSegmentIndex == 1 ? true : false;
     NSString *colorHex = [ColorHelper stringFromColor:self.cardColorSegmentedOutput.selectedSegmentTintColor];
-    NSLog(@"%@ %@ %d %@", clientId, companyName, barcode, colorHex);
     
+    // adding the card to the table view
     Card *newCard = [[Card alloc] initWithCompanyName:companyName
                                      stringId:clientId
                                      colorHex:colorHex
                                     isBarcode:barcode];
     [self.cards add:newCard];
+    
+    // updating data
+    ViewController *vc = (ViewController *)self.parentViewController;
+    vc.cards = self.cards;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"reload_data" object:self];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
     return;
 }
