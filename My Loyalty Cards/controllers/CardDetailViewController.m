@@ -6,6 +6,7 @@
 //
 
 #import "CardDetailViewController.h"
+#import "ViewController.h"
 #import "QRCodeHelper.h"
 #import "BarcodeHelper.h"
 #import "ColorHelper.h"
@@ -32,8 +33,21 @@
 - (IBAction)deleteButtonAction:(id)sender {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Are you sure?"
                                                                    message:@"Do you really want to delete this card?" preferredStyle:UIAlertControllerStyleAlert];
+    		
+    // affermative action, delete the card
+    UIAlertAction *affermative = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+        
+        //getting parent view controller
+        ViewController *vc = (ViewController*)[self.navigationController.viewControllers objectAtIndex:[self.navigationController.viewControllers indexOfObject:self]-1];
+        
+        // deleting the card
+        [vc.cards remove:self.specifiedCard];
+        
+        // reload data
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"reload_data" object:self];
+        [[self navigationController] popViewControllerAnimated:YES];
+    }];
     
-    UIAlertAction *affermative = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {}];
     UIAlertAction *negative = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){}];
     
     [alert addAction:negative];
