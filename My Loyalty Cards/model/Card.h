@@ -15,16 +15,20 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSString *stringID;
 @property bool isBarcode;
 @property NSString *colorHex;
+@property NSData *logoData;
 
+// constructors
 - (id)initWithCompanyName:(NSString*)companyName
                  stringId:(NSString*)stringID
                  colorHex:(NSString*)colorHex
                 isBarcode:(BOOL)isBarcode;
 
-- (NSString*) getStringID;
-- (NSString*) getCompanyName;
-- (NSString*) getColorHex;
-- (BOOL) isIsBarcode;
+- (id)initWithCompanyName:(NSString*)companyName
+                 stringId:(NSString*)stringID
+                 colorHex:(NSString*)colorHex
+                isBarcode:(BOOL)isBarcode
+                     logo:(NSData*) logo;
+
 @end
 
 NS_ASSUME_NONNULL_END

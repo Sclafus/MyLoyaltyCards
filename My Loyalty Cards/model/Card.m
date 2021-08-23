@@ -12,6 +12,7 @@
     NSString *_stringID;
     NSString *_colorHex;
     BOOL _isBarcode;
+    NSData *_logoData;
 }
 
 - (id)initWithCompanyName:(NSString*)companyName
@@ -27,21 +28,15 @@
     return self;
 }
 
-
-- (NSString*) getStringID{
-    return _stringID;
-}
-
-- (NSString*) getCompanyName{
-    return _companyName;
-}
-
-- (NSString*) getColorHex{
-    return _colorHex;
-}
-
-- (BOOL) isIsBarcode{
-    return _isBarcode;
+- (id) initWithCompanyName:(NSString *)companyName stringId:(NSString *)stringID colorHex:(NSString *)colorHex isBarcode:(BOOL)isBarcode logo:(NSData *)logo{
+    
+    self = [super init];
+    _companyName = companyName;
+    _stringID = stringID;
+    _colorHex = colorHex;
+    _isBarcode = isBarcode;
+    _logoData = logo;
+    return self;
 }
 
 @end
