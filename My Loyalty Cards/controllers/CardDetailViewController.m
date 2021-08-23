@@ -20,12 +20,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // setting data
     self.title = self.specifiedCard.companyName;
     self.view.backgroundColor = [ColorHelper colorFromString:self.specifiedCard.colorHex];
+    self.cardLogo.image = [UIImage imageWithData:self.specifiedCard.logoData];
     
     self.cardImage.image = self.specifiedCard.isBarcode ? [BarcodeHelper generateBarcodeFromString:self.specifiedCard.stringID] : [QRCodeHelper generateQRCodeFromString:self.specifiedCard.stringID];
-    
-    //sharpening
+    //sharpening image
     self.cardImage.layer.magnificationFilter = kCAFilterNearest;
 }
 
