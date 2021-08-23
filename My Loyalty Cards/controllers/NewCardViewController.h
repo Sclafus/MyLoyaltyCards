@@ -9,7 +9,7 @@
 #import "CardList.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NewCardViewController : UIViewController
+@interface NewCardViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (strong, nonatomic) CardList *cards;
 
@@ -17,10 +17,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) IBOutlet UITextField *clientIdTextField;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *cardTypeSegmentOutput;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *cardColorSegmentedOutput;
+@property (retain, nonatomic) UIImagePickerController *imageController;
 
 - (IBAction)cardColorAction:(id)sender;
 - (IBAction)cancelButtonAction:(id)sender;
 - (IBAction)doneButtonAction:(id)sender;
+- (IBAction)selectLogoButtonAction:(id)sender;
 
 @end
 

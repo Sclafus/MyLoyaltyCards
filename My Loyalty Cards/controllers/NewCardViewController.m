@@ -10,17 +10,36 @@
 #import "ColorHelper.h"
 #import "ViewController.h"
 @interface NewCardViewController ()
-
+@property NSData *imageDataTmp;
 @end
 
 @implementation NewCardViewController
+@synthesize imageController;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
 
+#pragma mark logo
+- (IBAction)selectLogoButtonAction:(id)sender {
+    imageController = [[UIImagePickerController alloc] init];
+    imageController.delegate = self;
+    [self presentViewController:imageController animated:YES completion:nil];
+}
 
+- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey,id> *)info {
+    
+    // saving the data
+    _imageDataTmp = UIImageJPEGRepresentation([info objectForKey:UIImagePickerControllerOriginalImage], 1);
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void) imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark done button
 - (IBAction)doneButtonAction:(id)sender {
     NSString *companyName = self.companyNameTextField.text;
     NSString *clientId =  self.clientIdTextField.text;
@@ -40,11 +59,15 @@
     NSString *colorHex = [ColorHelper stringFromColor:self.cardColorSegmentedOutput.selectedSegmentTintColor];
     
     // adding the card to the table view
-    Card *newCard = [[Card alloc] initWithCompanyName:companyName
-                                     stringId:clientId
-                                     colorHex:colorHex
-                                    isBarcode:barcode];
-    [self.cards add:newCard];
+    if (_imageDataTmp == nil){
+        Card *newCard = [[Card alloc] initWithCompanyName:companyName stringId:clientId colorHex:colorHex isBarcode:barcode];
+        [self.cards add:newCard];
+        
+    } else {
+        Card *newCard = [[Card alloc] initWithCompanyName:companyName stringId:clientId colorHex:colorHex isBarcode:barcode logo:_imageDataTmp];
+        [self.cards add:newCard];
+    }
+
     
     // updating data
     ViewController *vc = (ViewController *)self.parentViewController;
@@ -55,6 +78,8 @@
     return;
 }
 
+
+#pragma mark ux
 - (IBAction)cancelButtonAction:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
