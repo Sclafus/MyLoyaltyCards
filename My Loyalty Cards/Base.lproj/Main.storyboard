@@ -69,13 +69,20 @@
                                     <constraint firstAttribute="height" constant="374" id="ZOU-hO-H6T"/>
                                 </constraints>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="supermercati" translatesAutoresizingMaskIntoConstraints="NO" id="8i8-NG-wyA">
+                                <rect key="frame" x="72" y="572" width="270" height="176"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Hvv-HW-dqs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Hvv-HW-dqs" firstAttribute="bottom" secondItem="8i8-NG-wyA" secondAttribute="bottom" constant="65" id="GGO-8o-h67"/>
                             <constraint firstItem="Km4-07-BFt" firstAttribute="leading" secondItem="Hvv-HW-dqs" secondAttribute="leading" constant="20" id="ISg-UY-8QG"/>
+                            <constraint firstItem="8i8-NG-wyA" firstAttribute="top" secondItem="Km4-07-BFt" secondAttribute="bottom" constant="30" id="OZL-g3-mR9"/>
                             <constraint firstItem="Hvv-HW-dqs" firstAttribute="trailing" secondItem="Km4-07-BFt" secondAttribute="trailing" constant="20" id="Ore-mJ-brV"/>
+                            <constraint firstItem="8i8-NG-wyA" firstAttribute="centerX" secondItem="Km4-07-BFt" secondAttribute="centerX" id="V3G-L5-ufH"/>
                             <constraint firstItem="Km4-07-BFt" firstAttribute="top" secondItem="Hvv-HW-dqs" secondAttribute="top" constant="80" id="sjz-oC-rhV"/>
+                            <constraint firstItem="8i8-NG-wyA" firstAttribute="leading" secondItem="Hvv-HW-dqs" secondAttribute="leading" constant="72" id="zF8-7G-yCy"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="oXS-hf-jTg">
@@ -88,11 +95,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="cardImage" destination="Km4-07-BFt" id="h0T-gr-nZS"/>
+                        <outlet property="cardLogo" destination="8i8-NG-wyA" id="IP9-sI-zO9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9y8-qP-Hky" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1790" y="734"/>
+            <point key="canvasLocation" x="1789.8550724637682" y="733.92857142857144"/>
         </scene>
         <!--New card-->
         <scene sceneID="ZtL-vK-d8b">
@@ -178,13 +186,23 @@
                                     <action selector="cardColorAction:" destination="OXm-oe-IX6" eventType="valueChanged" id="iti-ek-4t1"/>
                                 </connections>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J33-SB-rC4">
+                                <rect key="frame" x="29" y="463" width="84" height="30"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                <state key="normal" title="Select Logo"/>
+                                <connections>
+                                    <action selector="selectLogoButtonAction:" destination="OXm-oe-IX6" eventType="touchUpInside" id="ngi-sc-htv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3xc-cN-c9C"/>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="di1-SK-rH5" firstAttribute="top" secondItem="dRl-9A-zxm" secondAttribute="bottom" constant="8" id="1TK-m6-7e0"/>
                             <constraint firstItem="di1-SK-rH5" firstAttribute="leading" secondItem="3xc-cN-c9C" secondAttribute="leading" constant="29" id="6we-QQ-QgF"/>
+                            <constraint firstItem="J33-SB-rC4" firstAttribute="top" secondItem="Cw5-yE-BLW" secondAttribute="bottom" constant="56" id="Cge-2I-YFc"/>
                             <constraint firstItem="eli-f8-KMR" firstAttribute="leading" secondItem="3xc-cN-c9C" secondAttribute="leading" constant="29" id="Cqk-eI-afF"/>
+                            <constraint firstItem="3xc-cN-c9C" firstAttribute="trailing" secondItem="J33-SB-rC4" secondAttribute="trailing" constant="301" id="E5E-ps-1NJ"/>
                             <constraint firstItem="Cw5-yE-BLW" firstAttribute="leading" secondItem="3xc-cN-c9C" secondAttribute="leading" constant="29" id="Lmz-BD-0CP"/>
                             <constraint firstItem="3xc-cN-c9C" firstAttribute="trailing" secondItem="DCH-MO-AZj" secondAttribute="trailing" constant="29" id="R91-AZ-xpH"/>
                             <constraint firstItem="DCH-MO-AZj" firstAttribute="leading" secondItem="Cw5-yE-BLW" secondAttribute="trailing" constant="15" id="S8T-eu-R8n"/>
@@ -205,6 +223,7 @@
                             <constraint firstItem="dRl-9A-zxm" firstAttribute="top" secondItem="VC8-ro-78Z" secondAttribute="bottom" constant="54" id="nK1-pY-SHz"/>
                             <constraint firstItem="pTx-tq-i24" firstAttribute="leading" secondItem="3xc-cN-c9C" secondAttribute="leading" constant="29" id="pbx-MU-2zO"/>
                             <constraint firstItem="JSb-uP-tMO" firstAttribute="top" secondItem="JNX-2H-gd0" secondAttribute="bottom" constant="49" id="rJ2-Ht-dN3"/>
+                            <constraint firstItem="J33-SB-rC4" firstAttribute="leading" secondItem="3xc-cN-c9C" secondAttribute="leading" constant="29" id="tPf-YB-Ob6"/>
                             <constraint firstItem="VC8-ro-78Z" firstAttribute="top" secondItem="3xc-cN-c9C" secondAttribute="top" id="wif-3f-45K"/>
                         </constraints>
                     </view>
@@ -218,7 +237,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m6u-6s-qBy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2790" y="56"/>
+            <point key="canvasLocation" x="2789.8550724637685" y="55.580357142857139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NEy-pl-0sW">
@@ -242,6 +261,7 @@
     <resources>
         <image name="barcode" catalog="system" width="128" height="93"/>
         <image name="qrcode" catalog="system" width="128" height="114"/>
+        <image name="supermercati" width="1200" height="800"/>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
